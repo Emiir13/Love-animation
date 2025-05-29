@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1e1e1e;
+  font-family: 'Arial', sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.message {
+  margin-top: 1rem;
+  font-size: 2rem;
+  color: #ff6699;
+}
+
+.love .heart-block {
+  position: relative;
+  width: 280px;
+  height: 240px;
+  margin: 0 auto;
+}
+
+.love .heart-block div {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: url("https://em-content.zobj.net/thumbs/240/apple/354/red-heart_2764-fe0f.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
