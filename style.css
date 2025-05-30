@@ -8,7 +8,6 @@ body {
   align-items: center;
   height: 100vh;
   overflow: hidden;
-  flex-direction: column;
 }
 
 .container {
@@ -24,78 +23,49 @@ body {
 .message {
   font-size: 1.5rem;
   color: #f06292;
-  margin-top: 1rem;
-  animation: fadeIn 2s ease-in-out 2s forwards;
-  opacity: 0;
+  margin-top: 2rem;
+  animation: beat 1s infinite;
 }
-
-.heart-svg {
-  width: 200px;
-  height: 200px;
-}
-
-.heart-path {
-  fill: none;
-  stroke: #f44336;
-  stroke-width: 2;
-  stroke-dasharray: 800;
-  stroke-dashoffset: 800;
-  animation: drawHeart 4s ease forwards;
-}
-
-@keyframes drawHeart {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-/* LÍNEAS ANIMADAS EN BUCLE */
 
 .lines-container {
   position: relative;
-  width: 100%;
-  height: 300px;
-  margin-bottom: 2rem;
+  width: 100vw;
+  height: 4px;
+  margin: 2rem auto;
   overflow: hidden;
 }
 
 .line {
   position: absolute;
-  top: 50%;
+  top: 0;
   height: 4px;
-  background-color: #ff4d6d;
-  animation-duration: 3s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
+  background-color: #f06292;
 }
 
 .line.left {
   left: 0;
-  width: 0;
-  animation-name: leftLineAnim;
+  animation: leftLineAnim 2s ease-in-out infinite;
 }
 
 .line.right {
   right: 0;
-  width: 0;
-  animation-name: rightLineAnim;
+  animation: rightLineAnim 2s ease-in-out infinite;
 }
 
 @keyframes leftLineAnim {
   0% { width: 0; }
-  50% { width: 50%; }
+  50% { width: 50vw; }
   100% { width: 0; }
 }
 
 @keyframes rightLineAnim {
   0% { width: 0; }
-  50% { width: 50%; }
+  50% { width: 50vw; }
   100% { width: 0; }
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
