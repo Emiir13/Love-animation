@@ -1,25 +1,28 @@
-const heartBlock = document.querySelector('.heart-block');
+const heart = document.querySelector('.heart');
 
-// Mapa con la forma del corazón (1 es un corazón, 0 es espacio)
 const heartShape = [
-  '00100100',
-  '01111110',
-  '11111111',
-  '11111111',
-  '01111110',
-  '00111100',
-  '00011000',
-  '00000000'
+  [0,1,0,0,0,0,0,1,0],
+  [1,1,1,0,0,0,1,1,1],
+  [1,1,1,1,0,1,1,1,1],
+  [1,1,1,1,1,1,1,1,1],
+  [0,1,1,1,1,1,1,1,0],
+  [0,0,1,1,1,1,1,0,0],
+  [0,0,0,1,1,1,0,0,0],
+  [0,0,0,0,1,0,0,0,0]
 ];
 
-// Generar los corazones dinámicamente
-heartShape.forEach((row, rowIndex) => {
-  [...row].forEach((cell, colIndex) => {
-    if (cell === '1') {
-      const heart = document.createElement('div');
-      heart.style.left = `${colIndex * 30}px`;
-      heart.style.top = `${rowIndex * 30}px`;
-      heartBlock.appendChild(heart);
+function createHeartBlock() {
+  for (let row = 0; row < heartShape.length; row++) {
+    for (let col = 0; col < heartShape[row].length; col++) {
+      if (heartShape[row][col]) {
+        const block = document.createElement('div');
+        block.className = 'block';
+        block.style.left = `${col * 22}px`;
+        block.style.top = `${row * 22}px`;
+        heart.appendChild(block);
+      }
     }
-  });
-});
+  }
+}
+
+createHeartBlock();
